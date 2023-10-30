@@ -9,35 +9,41 @@ import java.util.Scanner;
 public class Prog3 {
     public static void main(String[] args) {
         
-        try{
+        try {
             // open input and output files
-            Scanner sc = new Scanner(new File("Prog3.txt"));
+            Scanner sc = new Scanner(new File("CS232\\Classwork\\Labs\\Lab9\\Prog3.txt"));
             PrintStream ps = new PrintStream(new File("output.txt"));
 
             ArrayList<Integer> numbers = new ArrayList<>();
-            // cannot use primitive type with arraylist
+            // cannot use int with arraylist since its a primitive type
 
             // process each line of the text from the file
-            while(sc.hasNextLine()) {
+            while (sc.hasNextLine()) {
                 String line = sc.nextLine(); // 8 9 7 3
                 Scanner lineScanner = new Scanner(line);
                 int product = 1;
-                while(lineScanner.hasNextInt()) {
+
+                // Clear the ArrayList for each new line
+                numbers.clear();
+
+                while (lineScanner.hasNextInt()) {
                     int number = lineScanner.nextInt();
                     numbers.add(number);
                     product *= number;
                 }
-                System.out.println(numbers);
-                int sum = 0
-                for(int num : numbers) {
+
+                int sum = 0;
+                for (int num : numbers) {
                     sum += num;
                 }
-                
-                ps.println("Product: " + product  + " " + "Sum: " + sum);
+
+                ps.println("Product: " + product + " " + "Sum: " + sum);
             }
             
-        }
-        catch(FileNotFoundException e) {
+            // Close resources
+            sc.close();
+            ps.close();
+        } catch (FileNotFoundException e) {
             System.out.println("File not found: " + e.getMessage());
         }
     }

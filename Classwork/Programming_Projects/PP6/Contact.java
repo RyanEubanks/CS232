@@ -7,7 +7,7 @@ public class Contact {
     private String phoneNumber;
 
     // constructor
-    public Contact() {
+    public Contact(String name, String address, String phoneNumber) {
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
@@ -23,5 +23,11 @@ public class Contact {
     }
     public String phoneNumber() {
         return phoneNumber;
+    }
+
+    // toString function
+    @Override
+    public String toString() {
+        return "Name: " + name + "\nAddress: " + address + "\nPhone Number: " + phoneNumber;
     }
 }

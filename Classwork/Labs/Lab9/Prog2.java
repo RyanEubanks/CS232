@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Prog2 {
     public static void main(String[] args) {
         try {
-            File myFile = new File("Rectangle.java");
+            File myFile = new File("CS232\\Classwork\\Labs\\Lab1\\Rectangle.java");
             Scanner sc = new Scanner(myFile);
             while(sc.hasNextLine()) {
                 System.out.println(sc.nextLine());
